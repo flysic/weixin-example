@@ -14,9 +14,11 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
+		<!-- 
 			classpath:persistence-context.xml
 			classpath:dataSource-context.xml
 			classpath:trransation-context.xml
+		 -->
 		</param-value>		
 	</context-param>
 	
@@ -32,9 +34,11 @@
 	</listener>
 	
 	<!-- 
-		springMvc的前端控制器，接受的HTTP请求和转发请求的类，包含了springMvc的请求逻辑，spring使用这个类拦截web请求并进行相应的逻辑处理，
-		当DispatcherServlet载入后，它将从一个xml文件中载入Spirng的应用上下文，该xml文件的名字取决于<servlet-name>，
-		这里的DispatcherServlet将试图从一个叫做weixin-servlet.xml的文件中载入应用上下文，其默认位于WEB-INF目录下。
+		springMvc的前端控制器，接受的HTTP请求和转发请求的类，包含了springMvc的请求逻辑，
+		spring使用这个类拦截web请求并进行相应的逻辑处理，当DispatcherServlet载入后，
+		它将从一个xml文件中载入Spirng的应用上下文，该xml文件的名字取决于<servlet-name>，
+		这里的DispatcherServlet将试图从一个叫做weixin-servlet.xml的文件中载入应用上下文，
+		其默认位于WEB-INF目录下。
     -->
 	<servlet>
 		<servlet-name>weixin</servlet-name>
@@ -47,8 +51,8 @@
 	</servlet-mapping>
 	
 	<!-- 
-		浏览器form表单只支持get与post请求，而delete、put等method并不支持，spring3.0添加了一个过滤器，
-		可以将这些请求转换为标准的http方法，使得支持get、post、put与deletes请求，该过滤器为HiddenHttpMethodFilter。 
+		浏览器form表单只支持get与post请求，而delete、put等method并不支持，spring3.0添加了一个过滤器
+		(HiddenHttpMethodFilter)，可以将这些请求转换为标准的http方法，使得支持get、post、put与deletes请求。
 	-->
 	<filter>
 		<filter-name>httpMethodFilter</filter-name>
