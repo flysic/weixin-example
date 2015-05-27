@@ -5,6 +5,10 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <dependent-module archiveName="commons-weixin-0.5.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/comming-weixin/comming-weixin">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="weixin-ironside"/>
         <property name="java-output-path" value="/weixin-ironside/target/classes"/>
     </wb-module>
