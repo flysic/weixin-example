@@ -1,5 +1,7 @@
 package com.ironside.weixin.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +31,7 @@ public class WeixinController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
+	@ResponseBody
 	public String listMess(@RequestParam String name) {
 		return name; 
 	}
