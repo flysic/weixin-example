@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ironside.weixin.request.DefaultGetRequest;
+import com.ironside.weixin.request.DefaultGetProcess;
 import com.ironside.weixin.request.DefaultPostProcess;
 
 @Controller
@@ -15,7 +15,7 @@ import com.ironside.weixin.request.DefaultPostProcess;
 public class WeixinController {
 	
 	private DefaultPostProcess postProcess;
-	private DefaultGetRequest getRequest;
+	private DefaultGetProcess getProcess;
 	private final String token = "ironside";
 	
 	
@@ -23,7 +23,7 @@ public class WeixinController {
 		MyPostProcessor processor = new MyPostProcessor();
 		this.postProcess = new DefaultPostProcess();
 		this.postProcess.setProcessor(processor);
-		this.getRequest = new DefaultGetRequest();
+		this.getProcess = new DefaultGetProcess();
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class WeixinController {
 	@ResponseBody
 	public String validate(@RequestParam String signature, @RequestParam String timestamp, 
 	@RequestParam String nonce, @RequestParam String echostr) {
-		return getRequest.process(token, signature, timestamp, nonce, echostr);
+		return getProcess.process(token, signature, timestamp, nonce, echostr);
 	}
 
 }
