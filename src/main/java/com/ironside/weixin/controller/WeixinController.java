@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ironside.weixin.request.DefaultGetProcess;
-import com.ironside.weixin.request.DefaultPostProcess;
+import com.ironside.weixin.passive.request.DefaultGetProcess;
+import com.ironside.weixin.passive.request.DefaultPostProcess;
 
 @Controller
 @RequestMapping("/weixin")

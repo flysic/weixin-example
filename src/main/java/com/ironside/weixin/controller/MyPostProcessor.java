@@ -1,12 +1,12 @@
 package com.ironside.weixin.controller;
 
 
-import com.ironside.weixin.PostProcessorAdapter;
-import com.ironside.weixin.request.entity.EventClickEntity;
-import com.ironside.weixin.request.entity.TextEntity;
-import com.ironside.weixin.request.entity.VideoEntity;
-import com.ironside.weixin.response.entity.AbstractBaseResponse;
-import com.ironside.weixin.response.entity.TextResponse;
+import com.ironside.weixin.passive.PostProcessorAdapter;
+import com.ironside.weixin.passive.request.entity.EventClickEntity;
+import com.ironside.weixin.passive.request.entity.TextEntity;
+import com.ironside.weixin.passive.request.entity.VideoEntity;
+import com.ironside.weixin.passive.response.entity.AbstractBaseResponse;
+import com.ironside.weixin.passive.response.entity.TextResponse;
 import com.ironside.weixin.service.MyMessage;
 import com.ironside.weixin.service.MyServiceImpl;
 
