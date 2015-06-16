@@ -19,7 +19,7 @@ public class MyMessage {
 	public static final String MU_INFO = "株高约10m，干呈褐紫色，多纵驳纹。小枝呈绿色。叶片广卵形至卵形，边缘具细锯齿。" +
 			"花每节 1～2朵，无梗或具短梗，原种呈淡粉红或白色，栽培品种则有紫、红、彩斑至淡黄等花色，于早春先叶而开。梅花可分为系、类、型。如真梅系、杏梅系、樱李梅系等。";
 
-	public static final String CLICK_TEXT = "1";
-	public static final String CLICK_IMAGE = "2";
-	public static final String CLICK_VOICE = "3";
+	public static final String CLICK_TEXT = "click1";
+	public static final String CLICK_IMAGE = "sub1";
+	public static final String CLICK_VIDEO = "click3";
 }

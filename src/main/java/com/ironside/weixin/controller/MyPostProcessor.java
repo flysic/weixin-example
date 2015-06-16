@@ -1,12 +1,13 @@
 package com.ironside.weixin.controller;
 
-
 import com.ironside.weixin.passive.PostProcessorAdapter;
-import com.ironside.weixin.passive.request.entity.EventClickEntity;
+import com.ironside.weixin.passive.request.entity.EventMenuClickEntity;
 import com.ironside.weixin.passive.request.entity.TextEntity;
 import com.ironside.weixin.passive.request.entity.VideoEntity;
 import com.ironside.weixin.passive.response.entity.AbstractBaseResponse;
+import com.ironside.weixin.passive.response.entity.ImageResponse;
 import com.ironside.weixin.passive.response.entity.TextResponse;
+import com.ironside.weixin.passive.response.entity.VideoResponse;
 import com.ironside.weixin.service.MyMessage;
 import com.ironside.weixin.service.MyServiceImpl;
 
@@ -33,7 +34,7 @@ public class MyPostProcessor extends PostProcessorAdapter {
 	}
 
 	@Override
-	public String postProcessEventClick(EventClickEntity entity) {
+	public String postProcessEventMenuClick(EventMenuClickEntity entity) {
 		// 取得点击菜单的事件KEY值
 		String eventKey = entity.getEventKey();
 		AbstractBaseResponse response = null;
@@ -45,10 +46,14 @@ public class MyPostProcessor extends PostProcessorAdapter {
 			break;
 		case MyMessage.CLICK_IMAGE:
 			response = this.responseManager.getImageResponse(entity);
+			((ImageResponse)response).getImage().setMediaId("f_79hUmXIreErst9BLJDe2i0HZUKPQF9kPs9VOaRm_JCbM4gsc04VuIdRRdb82dg");
 			// 可在这里进行处理
 			break;
-		case MyMessage.CLICK_VOICE:
-			response = this.responseManager.getVoiceResponse(entity);
+		case MyMessage.CLICK_VIDEO:
+			response = this.responseManager.getVideoResponse(entity);
+			((VideoResponse)response).getVideo().setDescription("视频");
+			((VideoResponse)response).getVideo().setMediaId("FapYmcWHAzTMS8Pk6k-kW8DY8LU-O7di8p5jtPP5xBuCEzJ13pzRfjkFrUHKBaP-");
+			((VideoResponse)response).getVideo().setTitle("开发者");
 			// 可在这里进行处理
 			break;
 		default:
