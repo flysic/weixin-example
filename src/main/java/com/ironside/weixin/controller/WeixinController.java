@@ -53,5 +53,11 @@ public class WeixinController {
 	@RequestParam String nonce, @RequestParam String echostr) {
 		return getProcess.process(token, signature, timestamp, nonce, echostr);
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, produces = "text/html;charset=utf-8")
+	@ResponseBody
+	public String view() {
+		return "你好";
+	}	
 
 }

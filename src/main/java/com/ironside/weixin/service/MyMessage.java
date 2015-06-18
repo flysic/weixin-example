@@ -21,5 +21,5 @@ public class MyMessage {
 
 	public static final String CLICK_TEXT = "click1";
 	public static final String CLICK_IMAGE = "sub1";
-	public static final String CLICK_VIDEO = "click3";
+	public static final String CLICK_TRASFER_CUSTOMER = "click3";
 }

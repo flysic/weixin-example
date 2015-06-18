@@ -7,6 +7,7 @@ import com.ironside.weixin.passive.request.entity.VideoEntity;
 import com.ironside.weixin.passive.response.entity.AbstractBaseResponse;
 import com.ironside.weixin.passive.response.entity.ImageResponse;
 import com.ironside.weixin.passive.response.entity.TextResponse;
+import com.ironside.weixin.passive.response.entity.TransferCustomerResponse;
 import com.ironside.weixin.passive.response.entity.VideoResponse;
 import com.ironside.weixin.service.MyMessage;
 import com.ironside.weixin.service.MyServiceImpl;
@@ -49,12 +50,9 @@ public class MyPostProcessor extends PostProcessorAdapter {
 			((ImageResponse)response).getImage().setMediaId("f_79hUmXIreErst9BLJDe2i0HZUKPQF9kPs9VOaRm_JCbM4gsc04VuIdRRdb82dg");
 			// 可在这里进行处理
 			break;
-		case MyMessage.CLICK_VIDEO:
-			response = this.responseManager.getVideoResponse(entity);
-			((VideoResponse)response).getVideo().setDescription("视频");
-			((VideoResponse)response).getVideo().setMediaId("FapYmcWHAzTMS8Pk6k-kW8DY8LU-O7di8p5jtPP5xBuCEzJ13pzRfjkFrUHKBaP-");
-			((VideoResponse)response).getVideo().setTitle("开发者");
-			// 可在这里进行处理
+		case MyMessage.CLICK_TRASFER_CUSTOMER:
+			response = this.responseManager.getTransferCustomerResponse(entity);
+			((TransferCustomerResponse)response).setTransInfo(null);
 			break;
 		default:
 			
