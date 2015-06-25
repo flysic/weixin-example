@@ -5,7 +5,7 @@
 	version="2.4"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	
-	<display-name>weixin-ironside</display-name>
+	<display-name>weixin-example</display-name>
 	
 	<!-- 
 		contextConfigLocation是spring核心配置文件，是spring中必不可少的东西，

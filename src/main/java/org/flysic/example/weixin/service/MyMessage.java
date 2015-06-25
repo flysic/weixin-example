@@ -1,4 +1,4 @@
-package com.ironside.weixin.service;
+package org.flysic.example.weixin.service;
 
 
 /**

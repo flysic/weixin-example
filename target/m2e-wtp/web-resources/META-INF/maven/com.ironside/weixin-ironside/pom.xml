@@ -38,8 +38,8 @@
     <dependency>
     	<groupId>org.flysic</groupId>
     	<artifactId>commons-weixin</artifactId>
-    	<version>0.5</version>
-    </dependency>
+    	<version>0.6</version>
+    </dependency> 
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

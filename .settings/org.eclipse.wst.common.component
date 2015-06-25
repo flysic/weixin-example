@@ -6,7 +6,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
-        <dependent-module archiveName="commons-weixin-0.5.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/comming-weixin/comming-weixin">
+        <dependent-module archiveName="commons-weixin-0.6.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/commons-weixin/commons-weixin">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="weixin-ironside"/>

@@ -1,30 +1,47 @@
-package com.ironside.weixin.controller;
+package org.flysic.example.weixin.controller;
 
-import com.ironside.weixin.passive.PostProcessorAdapter;
-import com.ironside.weixin.passive.request.entity.EventMenuClickEntity;
-import com.ironside.weixin.passive.request.entity.TextEntity;
-import com.ironside.weixin.passive.request.entity.VideoEntity;
-import com.ironside.weixin.passive.response.entity.AbstractBaseResponse;
-import com.ironside.weixin.passive.response.entity.ImageResponse;
-import com.ironside.weixin.passive.response.entity.TextResponse;
-import com.ironside.weixin.passive.response.entity.TransferCustomerResponse;
-import com.ironside.weixin.passive.response.entity.VideoResponse;
-import com.ironside.weixin.service.MyMessage;
-import com.ironside.weixin.service.MyServiceImpl;
+import org.apache.commons.lang.StringUtils;
+import org.flysic.commons.weixin.passive.PostProcessorAdapter;
+import org.flysic.commons.weixin.passive.request.entity.EventMenuClickEntity;
+import org.flysic.commons.weixin.passive.request.entity.TextEntity;
+import org.flysic.commons.weixin.passive.request.entity.VideoEntity;
+import org.flysic.commons.weixin.passive.response.entity.AbstractBaseResponse;
+import org.flysic.commons.weixin.passive.response.entity.ImageResponse;
+import org.flysic.commons.weixin.passive.response.entity.TextResponse;
+import org.flysic.commons.weixin.passive.response.entity.TransferCustomerResponse;
+import org.flysic.example.weixin.service.MyMessage;
+import org.flysic.example.weixin.service.MyServiceImpl;
 
 /**
  * 测试用的POST处理器
- * @author 雪庭
+ * @author 雪庭(flysic) QQ: 119238122 微信: flysic github: https://github.com/flysic
  * @sine 1.0 at 2015年5月8日
  */
 public class MyPostProcessor extends PostProcessorAdapter {
 	
 	@Override
 	public String postProcessText(TextEntity entity) {
-		// 取得文本内容(花名)
+		// 取得文本内容
 		String flower = entity.getContent();
-		// 花的介绍
+		// 如果是数字，从数据库得到花的介绍
+		if (StringUtils.isNumeric(flower)) {
+			return doFlower(entity);
+		}
+		// 如果是文本，发送到客服
+		return doTransferCustomer(entity);
+	}
+	
+	// 发送到客服
+	private String doTransferCustomer(TextEntity entity) {
+		TransferCustomerResponse transferCustomerResponse = this.responseManager.getTransferCustomerResponse(entity);
+		String result = this.responseManager.responseToXml(transferCustomerResponse);
+		return result;
+	}
+
+	// 从数据库得到花的介绍
+	private String doFlower(TextEntity entity) {
 		String flowerInfo;
+		String flower = entity.getContent();
 		// 数据库查找
 		flowerInfo = MyServiceImpl.findFlower(flower);
 		// 以文本效应方式返回花的介绍
