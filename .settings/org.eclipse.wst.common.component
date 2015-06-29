@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="weixin-ironside">
+    <wb-module deploy-name="weixin-example">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
@@ -9,7 +9,7 @@
         <dependent-module archiveName="commons-weixin-0.6.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/commons-weixin/commons-weixin">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="weixin-ironside"/>
-        <property name="java-output-path" value="/weixin-ironside/target/classes"/>
+        <property name="java-output-path" value="/weixin-example/target/classes"/>
+        <property name="context-root" value="weixin-example"/>
     </wb-module>
 </project-modules>
